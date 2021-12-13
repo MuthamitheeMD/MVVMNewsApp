@@ -4,6 +4,8 @@ package com.example.mvvmnewsapp.ui
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.navigation.NavArgs
+import com.example.mvvmnewsapp.MainActivity
 import com.example.mvvmnewsapp.R
 
 
