@@ -1,7 +1,12 @@
 package com.example.mvvmnewsapp.room
 
 import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.mvvmnewsapp.model.Article
+import kotlinx.coroutines.internal.synchronized
 
 @Database(
     entities = [Article::class],

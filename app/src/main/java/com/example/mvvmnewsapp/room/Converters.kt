@@ -1,5 +1,6 @@
 package com.example.mvvmnewsapp.room
 
+import androidx.room.TypeConverter
 import com.example.mvvmnewsapp.model.Source
 
 

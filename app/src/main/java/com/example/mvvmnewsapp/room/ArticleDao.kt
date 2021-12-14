@@ -1,6 +1,7 @@
 package com.example.mvvmnewsapp.room
 
 import androidx.lifecycle.LiveData
+import androidx.room.*
 import com.example.mvvmnewsapp.model.Article
 
 @Dao
