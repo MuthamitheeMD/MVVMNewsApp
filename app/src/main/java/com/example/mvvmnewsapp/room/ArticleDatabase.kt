@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.mvvmnewsapp.model.Article
-import kotlinx.coroutines.internal.synchronized
 
 @Database(
     entities = [Article::class],
@@ -23,7 +22,7 @@ abstract class ArticleDatabase: RoomDatabase() {
         private var instance: ArticleDatabase? = null
         private val LOCK = Any()
 
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK)  {
             instance?: createDatabase(context).also { instance = it }
 
         }

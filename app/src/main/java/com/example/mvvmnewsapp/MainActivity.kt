@@ -2,9 +2,14 @@ package com.example.mvvmnewsapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mvvmnewsapp.databinding.ActivityMainBinding
+import com.example.mvvmnewsapp.repository.NewsRepository
+import com.example.mvvmnewsapp.room.ArticleDatabase
+import com.example.mvvmnewsapp.ui.NewsViewModel
+import com.example.mvvmnewsapp.ui.NewsViewModelProviderFactory
 
 class MainActivity : AppCompatActivity() {
 

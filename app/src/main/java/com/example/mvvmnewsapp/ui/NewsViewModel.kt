@@ -7,6 +7,7 @@ import com.example.mvvmnewsapp.model.Article
 import com.example.mvvmnewsapp.model.NewsResponse
 import com.example.mvvmnewsapp.repository.NewsRepository
 import com.example.mvvmnewsapp.utils.Resource
+import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class NewsViewModel(
@@ -63,7 +64,7 @@ class NewsViewModel(
                 }else{
                     val oldArticles = searchNewsResponse?.articles
                     val newArticles = resultResponse.articles
-                    oldArticles.addAll(newArticles)
+                    oldArticles?.addAll(newArticles)
                 }
                 return Resource.Success(searchNewsResponse ?: resultResponse)
             }

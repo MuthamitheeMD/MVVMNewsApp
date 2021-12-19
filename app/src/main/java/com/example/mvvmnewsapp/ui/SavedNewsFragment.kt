@@ -1,10 +1,9 @@
 package com.example.mvvmnewsapp.ui
 
 
-import android.app.ProgressDialog.show
+
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.accessibility.AccessibilityEventCompat.setAction
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -14,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvmnewsapp.MainActivity
 import com.example.mvvmnewsapp.R
 import com.example.mvvmnewsapp.adapters.NewsAdapter
+import com.example.mvvmnewsapp.databinding.FragmentSavedNewsBinding
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -21,9 +21,11 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
 
     lateinit var viewModel: NewsViewModel
     lateinit var newsAdapter: NewsAdapter
+    private lateinit var binding: FragmentSavedNewsBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentSavedNewsBinding.inflate(layoutInflater)
         viewModel = (activity as MainActivity).viewModel
         setUpRecyclerView()
 
@@ -65,7 +67,7 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
         }
 
         ItemTouchHelper(itemTouchHelperCallBack).apply{
-            attachToRecyclerView(rvSavedNews)
+            attachToRecyclerView(binding.rvSavedNews)
         }
 
         viewModel.getSavedNews().observe(viewLifecycleOwner, Observer{ articles->
@@ -75,9 +77,9 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
 
     private fun setUpRecyclerView(){
         newsAdapter = NewsAdapter()
-        rvSavedNews.apply{
+        binding.rvSavedNews.apply{
             adapter = newsAdapter
-            LayoutManager = LinearLayoutManager(activity)
+            layoutManager = LinearLayoutManager(activity)
         }
     }
 
